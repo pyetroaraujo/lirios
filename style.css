@@ -1,0 +1,175 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#050505;
+overflow:hidden;
+height:100vh;
+font-family:'Great Vibes',cursive;
+}
+
+#intro{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:20;
+}
+
+#startBtn{
+padding:18px 42px;
+border:none;
+border-radius:50px;
+font-size:1.2rem;
+cursor:pointer;
+background:white;
+transition:.4s;
+box-shadow:0 0 25px rgba(255,255,255,.25);
+}
+
+#startBtn:hover{
+transform:scale(1.05);
+}
+
+#scene{
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+.flowers{
+display:flex;
+align-items:flex-end;
+gap:40px;
+}
+
+.lily{
+width:220px;
+height:auto;
+overflow:visible;
+opacity:0;
+}
+
+.lily-center{
+transform:translateY(-20px);
+}
+
+.stem{
+fill:none;
+stroke:#2e4b6b;
+stroke-width:8;
+stroke-linecap:round;
+
+filter:
+drop-shadow(0 0 6px #2e4b6b)
+drop-shadow(0 0 15px #2e4b6b);
+}
+
+.petal{
+fill:#ff8fc7;
+
+stroke:#ffd3ea;
+stroke-width:2;
+
+filter:
+drop-shadow(0 0 8px #ff8fc7)
+drop-shadow(0 0 20px #ff8fc7)
+drop-shadow(0 0 40px rgba(255,143,199,.6));
+
+transform-box:fill-box;
+transform-origin:center bottom;
+}
+
+#message{
+position:absolute;
+
+bottom:12%;
+
+font-size:5rem;
+font-weight:400;
+
+color:white;
+
+opacity:0;
+
+text-shadow:
+0 0 10px #ff8fc7,
+0 0 25px #ff8fc7,
+0 0 50px #ff8fc7;
+}
+
+body::before{
+content:"";
+
+position:absolute;
+inset:0;
+
+background:
+radial-gradient(
+circle at center,
+rgba(255,143,199,.08),
+transparent 70%
+);
+
+pointer-events:none;
+}
+
+body::after{
+content:"";
+
+position:absolute;
+inset:0;
+
+background-image:
+
+radial-gradient(
+white 1px,
+transparent 1px
+);
+
+background-size:60px 60px;
+
+opacity:.08;
+
+animation:stars 20s linear infinite;
+}
+
+@keyframes stars{
+
+from{
+transform:translateY(0);
+}
+
+to{
+transform:translateY(-60px);
+}
+
+}
+
+@media(max-width:768px){
+
+.flowers{
+gap:5px;
+}
+
+.lily{
+width:110px;
+}
+
+#message{
+
+font-size:2.4rem;
+
+width:90%;
+text-align:center;
+}
+
+}
